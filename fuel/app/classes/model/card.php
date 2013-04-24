@@ -15,7 +15,7 @@ abstract class Card
 
 	public static $horizontal = array();
 	public static $vertical = array();
-	public static $dioganal = array();
+	public static $diagonal = array();
 
 	public static function generate($user_id, $round = 1) 
 	{
@@ -35,11 +35,11 @@ abstract class Card
 				static::$vertical[$row][$column] = $number;
 				if($row == $column) 
 				{
-					static::$dioganal[0][$column] = $number;				
+					static::$diagonal[0][$column] = $number;				
 				}
 				if($row+$column == static::$_rows-1)
 				{
-					static::$dioganal[1][$column] = $number;									
+					static::$diagonal[1][$column] = $number;									
 				}
 				$_index++;
 			}
@@ -50,7 +50,7 @@ abstract class Card
 		$card_rows = array(
 			'horizontal' => static::$horizontal,
 			'vertical' => static::$vertical,
-			'dioganal' => static::$dioganal,
+			'diagonal' => static::$diagonal,
 		);
 		foreach ($card_rows as $row => $values) {
 			foreach ($values as $key => $value) {
